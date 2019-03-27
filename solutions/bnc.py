@@ -1,39 +1,40 @@
 from random import randint
 
-# create a list of play options
-t = ["Bear", "Ninja", "Cowboy"]
-# Bear defeats Ninja
-# Ninja defeats Cowboy
-# Cowboy defeats Bear
+# Define roles
+roles = ["Bear", "Ninja", "Cowboy"]
 
-# assign a random play to the computer
-computer = t[randint(0,2)]
+# Generate a random role using an array
+computer = roles[randint(0,2)]
 
-# set player to False
 player = False
 
 while player == False:
-#set player to True
-    player = input("Bear, Cowboy, Ninja? > ")
-    if player == computer:
-        print("Tie!")
-    elif player == "Bear":
-        if computer == "Cowboy":
-            print("You lose!", computer, "shoots", player)
-        else:
-            print("You win!", player, "eats", computer)
-    elif player == "Cowboy":
-        if computer == "Ninja":
-            print("You lose!", computer, "cut", player)
-        else:
-            print("You win!", player, "covers", computer)
-    elif player == "Ninja":
-        if computer == "Bear":
-            print("You lose...", computer, "smashes", player)
-        else:
-            print("You win!", player, "defeats", computer)
+    # Get player input
+    player = input("Bear, Ninja, or Cowboy? > ")
+
+    # Compare computer and player role
+
+    if computer == player:
+      print("DRAW!")
+    elif computer == "Cowboy":
+      if player == "Bear":
+        print("You lose!", computer, "shoots", player)
+      else: # computer is cowboy, player is ninja
+        print("You win!", player, "defeats", computer)
+    elif computer == "Bear":
+      if player == "Cowboy":
+        print("You win!", player, "shoots", computer)
+      else: # computer is bear, player is ninja
+        print("You lose!", computer, "eats", player)
+    elif computer == "Ninja":
+      if player == "Cowboy":
+        print("You lose!", computer, "defeats", player)
+      else: # computer is ninja, player is bear
+        print("You win!", player, "eats", computer)
+
+    play_again = input("Would you like to play again? (yes/no) > ")
+    if play_again == 'yes':
+      player = False
+      computer = roles[randint(0,2)]
     else:
-        print("That's not a valid play. Check your spelling!")
-    #player was set to True, but we want it to be False so the loop continues
-    player = False
-    computer = t[randint(0,2)]
+      break
