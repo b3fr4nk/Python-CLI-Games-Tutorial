@@ -5,6 +5,7 @@ slug: ascii-art
 
 ASCII Art is when you use ASCII characters as a font like this:
 
+```
    _ \          |    |                   
   |   |  |   |  __|  __ \    _ \   __ \  
   ___/   |   |  |    | | |  (   |  |   |
@@ -20,7 +21,7 @@ ASCII Art is when you use ASCII characters as a font like this:
  #####   #####   ##    ##  ## ##  ## ##  ##  
  ##         ##    ### #### ### #### #### ###
 ####    #####                                                                            
-
+```
 
 # Getting Started
 

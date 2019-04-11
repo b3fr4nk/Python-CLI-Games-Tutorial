@@ -1,6 +1,6 @@
-title: "Tutorial Template Title, max 56 characters"
+title: "Make Games with Python"
 cover: cover.png
-solution_url: https://github.com/MakeSchool-Tutorials/Tutorial-Template/
+# solution_url: 
 teaser_text: |
     Tell the user what they will learn!
     This can be multi-line text.
