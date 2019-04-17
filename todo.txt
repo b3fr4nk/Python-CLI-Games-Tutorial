@@ -1,3 +1,7 @@
+Proof
+update to use action/info blocks
+
+
 DONE Install python 3
   - what super power are they getting?
   - Intro to Terminal
@@ -13,13 +17,10 @@ DONE Game 1 Bear Ninja Cowboy
   - add control flow for logic
   - break up into functions
 
-Game 2 - Flash Card Quiz
+DONE Game 2 - Flash Card Quiz
   - what are the differences of python and other languages?
   - read and parse json from file system
   - loop over dictionary
   - access elements in dictionary
 
-Game 3 - Text Based Adventure
-  - what are some characteristics of python?
-
-Game 4 - Wikipedia CLI Search
+DONE Game 3 - ASCII-Art
