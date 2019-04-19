@@ -97,11 +97,11 @@ Let's imagine we have a list of Middle Eastern countries and their capitals. Let
 }
 ```
 
+This bit of JSON has one root key called `cards`, and the value associated with `cards` is an array of cards. Each element in the array `[]` is an object `{}` with two keys `q` for "question" and `a` for "answer".
+
 >[info]
 > JSON is a very popular way to store and transmit data in the internet. It is a great format for data because it is easy for computers and humans to read it and write it.
 > JSON's basic structure is comma-delimited **Key-Value Pairs** surrounded by curly-bracies `{}`. Notice that keys are strings, and values can be any form of data, including arrays `[]`, and objects `{}`. By having arrays and objects as values gives JSON a nested tree structure. As you use JSON more you will become very familiar with its structure.
-
-This bit of JSON has one root key called `cards`, and the value associated with `cards` is an array of cards. Each element in the array `[]` is an object `{}` with two keys `q` for "question" and `a` for "answer".
 
 # Read a File
 

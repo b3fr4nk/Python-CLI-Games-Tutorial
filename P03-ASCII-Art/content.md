@@ -23,6 +23,20 @@ ASCII Art is when you use ASCII characters as a font like this:
 ####    #####                                                                            
 ```
 
+We're not going to build a game exactly, it is more like an ASCII art generator. Here are the **User Stories** of this little program:
+
+1. User can put in any text and output ASCII.
+1. User can pick the ASCII font we want.
+1. User can list out the ASCII fonts to pick the one we want.
+
+In this tutorial you will learn how to:
+
+1. Make an API request using python3
+1. Split text into an array using `.split()`
+1. Use control flow to use boolean logic to control the outcome of programs
+1. Refactor code into functions
+
+
 # Getting Started
 
 We are going to take a few steps to make a few features:

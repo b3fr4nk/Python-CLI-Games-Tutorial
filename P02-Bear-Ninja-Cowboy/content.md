@@ -1,5 +1,5 @@
 ---
-title: "Building Bear Ninja Cowboy"
+title: "Bear, Ninja, Cowboy"
 slug: bear-ninja-cowboy
 ---
 
@@ -82,7 +82,7 @@ Now when we run the program, we should see the role the player has picked. If th
 
 Bear Ninja Cowboy basically has three parts:
 
-1. Command Line user input (DONE!)
+1. DONE - Command Line user input
 1. The computer randomly picking a role
 1. Checking the player's role and the computer's role
 1. Displaying who won
@@ -152,6 +152,16 @@ print(computer, player)
 ```
 
 # DRAW!
+
+We're going to break down the last step into a few sub-steps.
+
+1. DONE - Command Line user input
+1. DONE - The computer randomly picking a role
+1. DONE - Checking the player's role and the computer's role
+1. Displaying who won
+  1. Display if there is a Draw
+  1. Display if one of the three roles won
+  1. Display if any of the three roles won
 
 Now that we can see the computer's role and the player's role, we can setup some logic to compare the two. First lets check if there is a draw:
 
@@ -297,12 +307,17 @@ By setting `player` to `False` at the end keeps the `while` statement running fo
 
 # Play Again?
 
-Let's make the user experience even cleaner by asking if people want to play again or not.
+What if we didn't want the game to end, but prompted people to play again, how would we do that?
 
-```py
+>[action]
+>Let's make the user experience even cleaner by asking if people want to play again or not.
+
+>```py
 # cli-games/bnc.py
 
 ...
+
+    # after checking who won
 
     play_again = input("Would you like to play again? (yes/no) > ")
     if play_again == 'yes':
@@ -313,6 +328,14 @@ Let's make the user experience even cleaner by asking if people want to play aga
 ```
 
 We're using control flow again, this time to check if the input is `yes`. If it is yes, we want to keep `player` equal to `False` so the `while` statement keeps running and the game restarts. Otherwise, we want to end the program. That word `break` breaks off the program, ending it.
+
+# More Features
+
+What else could you add to this game?
+
+Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
+
+Anything else?
 
 # In Review: You Can ...
 
