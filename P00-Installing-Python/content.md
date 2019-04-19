@@ -40,9 +40,11 @@ Once your xcode commandline tools are installed, move onto the next step. Instal
 
 # Homebrew
 
-If we want to install things using the terminal, the best program to use is called Homebrew. If you don't already have Homebrew, install it by running this from your terminal:
+If we want to install things using the terminal, the best program to use is called Homebrew.
 
-```
+>[action]
+>If you don't already have Homebrew, install it by running this from your terminal:
+>```
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -50,9 +52,11 @@ This will install homebrew into your computer so now we can use it to install Py
 
 # Installing Python3
 
-We will be using the most advanced version of python there is which as of writing this is Python 3. To install it on your computer, use homebrew in, you guessed it, the command line terminal.
+We will be using the most advanced version of python there is which as of writing this is Python 3.
 
-```
+>[action]
+>To install it on your computer, use homebrew in, you guessed it, the command line terminal.
+>```
 $ brew install python3
 ```
 
