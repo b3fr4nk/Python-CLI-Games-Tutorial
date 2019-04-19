@@ -17,7 +17,8 @@ You will need a Mac computer to complete this tutorial.
 
 We'll be installing python using your computers Terminal, or Command Line Interface (CLI), or simply the command line. The CLI is just a text-based interface for using your computer. You can create and copy and paste files, you can open programs, you can even install and uninstall programs all from your command line.
 
-Open your command line by using Spotlight, so hit `Command` + `Spacebar` to open your Spotlight, then type "Terminal" and hit enter.
+>[action]
+>Open your command line by using Spotlight, so hit `Command` + `Spacebar` to open your Spotlight, then type "Terminal" and hit enter.
 
 Your terminal will open. Its kinda ugly, so we're going to make it pretty first.
 
@@ -25,9 +26,13 @@ Go to your settings of your terminal by hitting `Command` + `,` and under the Pr
 
 # Xcode Tools
 
-First we need some extra tools published by Apple to transform your computer from a normal, regular non-developer computer into a suped-up engineer's computer. Let's do that by pasting this command into your terminal (don't include the `$`—that just means you should run this in the command line):
+First we need some extra tools published by Apple to transform your computer from a normal, regular non-developer computer into a suped-up engineer's computer.
 
-```
+
+>[action]
+> Let's do that by pasting this command into your terminal (don't include the `$`—that just means you should run this in the command line):
+
+>```
 $ xcode-select --install
 ```
 
