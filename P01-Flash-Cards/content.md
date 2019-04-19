@@ -58,12 +58,12 @@ You can use Atom like any other word processor you are used to, but you can also
 Let's try using the command line command `atom .` to open the directory we are currently in. Make sure you have navigated to the `flash-cards` directory, then type the following:
 
 >[action]
+
 >```
 (flash-cards)$ atom .
 ```
 
->[info]
->The period (`.`) in `atom .` means "this directory". You can also open a project using a path, e.g. from the root `~` type the command `$ atom code/cli-games`
+**Clarification** - The period (`.`) in `atom .` means "this directory". You can also open a project using a path, e.g. from the root `~` type the command `$ atom code/cli-games`
 
 # Make a Plan
 
