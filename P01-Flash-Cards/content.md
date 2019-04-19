@@ -5,6 +5,8 @@ slug: flash-cards
 
 Ever need to memorize something? Flash cards can really do the trick! So we're going to build a command line flash card tester application. Let's get started.
 
+Imagine you want to learn the capitals of countries in the Middle East. Let's make some flashcards.
+
 By the end of this chapter you will be able to:
 
 1. Read a file with python3
@@ -18,7 +20,11 @@ Flash Cards will be made out of just one python file. You can tell if a file is 
 
 If you don't already have one, navigate to the root of your computer, to the `~` directory, and make a new directory called `code`, then in that directory make a new directory called `cli-games`. We'll put all the games we make in this tutorial in this folder. In that directory make a new directory called `flash-cards` and in that directory make two files, one called `flashcards.py` and one called `me-capitals.json` (where we will put our flash card data of "Middle Eastern Capitals").
 
-```bash
+
+>[action]
+>Make your initial project folder and two main files:
+
+>```bash
 $ cd ~
 $ mkdir code
 $ cd code
@@ -40,30 +46,47 @@ Now your folder should look like this:
   ...
 ```
 
+>[info]
+>It is important to keep your coding projects organized on your computer. Having a centralized folder called `code` or `dev` where you put all projects is a great pattern to follow.
+
 # Open the Directory in Atom
 
-Using the [atom text editor](https://atom.io/) open the `flash-cards` directory using the `atom` command within the `flash-cards` directory:
+Now let's get started coding. To code we will use the code editor Atom. If you don't already have this code editor, head over to the [Atom website](https://atom.io/) and download and install it.
 
-```
+You can use Atom like any other word processor you are used to, but you can also use it from the command line to open a single file or a whole project folder.
+
+Let's try using the command line command `atom .` to open the directory we are currently in. Make sure you have navigated to the `flash-cards` directory, then type the following:
+
+>[action]
+>```
 (flash-cards)$ atom .
 ```
 
-Now let's get started with the code.
+>[info]
+>The period (`.`) in `atom .` means "this directory". You can also open a project using a path, e.g. from the root `~` type the command `$ atom code/cli-games`
+
+# Make a Plan
+
+Software engineers always start any work by writing up a plan for how they will work on a project. This tutorial will provide you with this plan to start off with:
 
 We have basically five steps:
 
-1. Setup the data
-1. Write code that reads the data file and parses it into a python dictionary
-1. Write code that iterates over the data
+1. Setup the cards data that we want to quiz ourselves with
+1. Write code that reads the cards data and parses it into a python dictionary
+1. Write code that iterates over the cards
 1. Get the users's input for each question
-1. Check the users input against the answer and display "Correct!" or "Incorrect!"
+1. Check the users input against the answer
+1. Display "Correct!" or "Incorrect!"
 
 
-# Setting Up Data
+# Setting Up Card Data
 
-Go into your `me-capitals.json` file and let's add a little bit of JSON.
+Let's imagine we have a list of Middle Eastern countries and their capitals. Let's write those into a format called JSON.
 
-```json
+>[action]
+>Go into your `me-capitals.json` file and let's add a little bit of JSON.
+
+>```json
 {
   "cards": [
     {
@@ -86,9 +109,12 @@ A python script `.py` can read files around it using file system commands native
 
 Let's use these commands to read the `me-capitals.json` file and parse the JSON into a data format python can manipulate: a **Dictionary**. (Python can't work with JSON itself, it has to change it into an equivalent structure that it understands).
 
-Now we need to read this file and print its contents.
+>[action]
+>Now we need to read this file and print its contents.
 
-```py
+>```py
+# flashcards.py
+
 # import the json module from python3
 import json
 
@@ -100,20 +126,21 @@ with open('me-capitals.json', 'r') as f:
 
 First we import the `json` module and then we use the use the `open` built-in function, and pass it two arguments:
 
-  1. the name of the file: `me-capitals.json`
+  1. The name of the file: `me-capitals.json`
   1. An option—in this case `'r'`, which just means "read"
 
 The `as f:` part means that the contents of the file is passed into the `open` function as the variable f.
 
 So finally we use the `json` module we imported above to `.load(f)` that is to load the contents of the file and parse it from json into a python dictionary called `data`.
 
-Test the code by running:
+>[action]
+>Always test your code after each step by running it and checking that the step you just completed is working. Run your project with this command:
 
-```
+>```
 $ python3 flashcards.py
 ```
 
-You should see the contents of the file. The only difference between JSON and a python dictionary is the keys have `''` single quotes whereas the JSON has `""` double-quotes. Now that you are an engineer, you should be aware and focus on tiny differences like that b/c they matter to the computer.
+When you run this, you should see the contents of the file. The only difference between JSON and a python dictionary is the keys have `''` single quotes whereas the JSON has `""` double-quotes. Now that you are an engineer, you should be aware and focus on tiny differences like that because they matter to the computer.
 
 # For Loop Iterator
 
@@ -137,6 +164,8 @@ for <<ITEM>> in <<LIST or ARRAY>>
 So in our case for our cards:
 
 ```py
+# flashcards.py
+
 # import the json module from python3
 import json
 
@@ -158,7 +187,7 @@ We need to access the `cards` key, to get back its array value `[{'q': 'What is 
 
 Run the program.
 
-## A Few More Questions
+# A Few More Questions
 
 We're using learning the capitals of countries in the middle east for our cards. Let's add a few more capitals to our `me-capitals.json` file:
 
@@ -196,6 +225,8 @@ Now rerun the program and see if your iterator prints out each question
 Ok now we need to get the user to actually try to answer each question. To access the question in each object, we'll need to use the same way we accessed `cards` inside of data: `i["q"]`. And we'll use the `input` built-in function to prompt the user to enter an input.
 
 ```py
+# flashcards.py
+
 # import the json module from python3
 import json
 
@@ -220,7 +251,11 @@ So now we've done four of our five steps we set out to do, so all we have now is
 1. DONE - Get the users's input for each question
 1. Check the users input against the answer and display "Correct!" or "Incorrect!"
 
+We'll check correct and incorrect using the equality operator: `==`.
+
 ```py
+# flashcards.py
+
 import json
 
 with open('me-capitals.json', 'r') as f:
@@ -235,11 +270,16 @@ for i in data["cards"]:
         print("Incorrect!")
 ```
 
+>[info]
+>A note on **Clear Variable Naming**. Variables can be named almost anything, so it is important to pick names that are logical and semantic. We named the user's input "guess" because in terms of this program, that is what it is, the user's input is a guess at what the flashcard's answer is. Always consider carefully what to name a variable and pick a logical and clear name.
+
 # Adding the Correct Answer When Incorrect
 
 Now let's polish up the user experience by display the correct answer when someone get's the answer wrong.
 
 ```py
+# flashcards.py
+
 import json
 
 with open('me-capitals.json', 'r') as f:
@@ -292,6 +332,8 @@ As a stretch challenge now or later, come back and try to implement one of these
 Let's use a variable called `score` to keep track of score with each answer.
 
 ```py
+# flashcards.py
+
 import json
 
 with open('me-capitals.json', 'r') as f:
@@ -334,6 +376,6 @@ So in review here's what you did and what you can do now:
 
 1. You can read a file with python3
 1. You can parse data from a **JSON** format into a python **dictionary**
-1. You can access elements in a python dictonary
+1. You can access elements in a python dictionary
 1. You can iterate over an array
 1. You can take user input from the command line

@@ -5,6 +5,16 @@ slug: bear-ninja-cowboy
 
 You might know the game as "Rock, Paper, Scissors"—but for the sake of this tutorial, we will be building a game of Bear, Ninja, Cowboy.
 
+By the end of this chapter you will be able to:
+
+1. Use the `input` keyword to get command line input from a user
+1. Access values in an Array
+1. Use the `random` method imported from the `randint` module native to Python
+1. Use **Control Flow** if/else/elif statements
+1. Use a `while` statement to make your game stay on
+1. Use the keyword `break` to end the program
+
+
 # Getting Started
 
 Bear Ninja Cowboy or BNC will be made out of just one python file. You can tell if a file is python code if it ends in the `.py` document type.
@@ -37,7 +47,10 @@ $ atom .
 
 Our first step to make a Bear, Ninja, Cowboy game is to get some input from players with the command line input.
 
-```py
+>[action]
+>Let's put in the absoulte least code we can to achieve our first goal of getting command line input.
+
+>```py
 # cli-games/bnc.py
 
 input = input("Greetings, what is your name? > ")
@@ -306,8 +319,9 @@ We're using control flow again, this time to check if the input is `yes`. If it 
 So in review here's what you did and what you can do now:
 
 * You made your first Python 3 program, a Bear, Ninja, Cowboy game!
+* You can access values in an array
 * You can use the `input` keyword to get command line input from a user
 * You can use the `random` method imported from the `randint` module native to Python
-* You can use Control Flow if/else/elif statements
+* You can use **Control Flow** if/else/elif statements
 * You can use a `while` statement to make your game stay on
 * You use the keyword `break` to end the program

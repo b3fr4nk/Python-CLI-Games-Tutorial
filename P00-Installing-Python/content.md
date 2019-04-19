@@ -11,6 +11,12 @@ There are lots of computer languages to use to learn computer science, but one o
 
 Python is used by Google, researchers at major universities, and companies such as Uber, Instagram, Spotify, Netflix, and [many more](https://stackshare.io/python).
 
+By the end of this chapter you will be able to:
+
+1. Open and use your computer's terminal.
+1. Install Homebrew, a package manager for installing programs in your computer.
+1. Install Python3 to get started with Python.
+
 # The Terminal, Command Line Interface (CLI)
 
 You will need a Mac computer to complete this tutorial.
@@ -44,6 +50,7 @@ If we want to install things using the terminal, the best program to use is call
 
 >[action]
 >If you don't already have Homebrew, install it by running this from your terminal:
+
 >```
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -56,6 +63,7 @@ We will be using the most advanced version of python there is which as of writin
 
 >[action]
 >To install it on your computer, use homebrew in, you guessed it, the command line terminal.
+
 >```
 $ brew install python3
 ```
@@ -66,6 +74,12 @@ Now you can check if the installation went well by asking for python3's version:
 $ python3 --version
 ```
 
-if you see `Python 3.7.3` or something similar, then it is installed!
+If you see `Python 3.7.3` or something similar, then it is installed!
 
 On to the next chapter!
+
+# In Review: You Can ...
+
+1. Open and use your computer's terminal.
+1. Install Homebrew, a package manager for installing programs in your computer.
+1. Install Python3 to get started with Python.
