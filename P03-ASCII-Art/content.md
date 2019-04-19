@@ -36,7 +36,6 @@ In this tutorial you will learn how to:
 1. Use control flow to use boolean logic to control the outcome of programs
 1. Refactor code into functions
 
-
 # Getting Started
 
 We are going to take a few steps to make a few features:
@@ -53,11 +52,11 @@ $ cd cli-games
 $ touch asciiart.py
 ```
 
-And now open in Atom.
+And now open in Atom. (Hint: look back at other chapters if you can't remember how.)
 
 # Sending a GET HTTP Request
 
-We're not going to get too deep into web standards, for this tutorial you are just going to make **GET requests**, which means you are going to read data from a web endpoint, you won't create, update, or delete any data.
+We're not going to get too deep into web standards, for this tutorial you are just going to make **GET requests** to an API, which means you are going to read data from a web endpoint in the internet. You won't create, update, or delete any data.
 
 To make a request to a url using python we can use an extremely popular module called `requests`. Let's import this and make a request in our program:
 
@@ -71,15 +70,19 @@ print(r.text)
 
 When you run this what do you get? (Hint: `$ python3 asciiart.py`)
 
-At first you probably get an error that warns you that the module `requests` is not actually loaded yet. So let's install this module. In order to install this, we'll need to first install a tool for installing python3 modules called pip3. You can get it very easily by running:
+At first you probably get an error that warns you that the module `requests` is not actually loaded yet. So let's install this module. In order to install this, we'll need to first install a tool for installing python3 modules called pip3.
 
-```
+>[action]
+>You can get it very easily by running:
+
+>```
 $ python3 get-pip.py
 ```
 
-Now that you have pip3 installed, let's use it to install `requests`
+>[action]
+>Now that you have pip3 installed, let's use it to install `requests`
 
-```
+>```
 $ pip3 install requests
 ```
 
@@ -127,15 +130,19 @@ Some fonts to test with include "peaks", "shadow", and "thick".
 
 To get all the fonts, you can navigate to http://artii.herokuapp.com/fonts_list. This list of fonts is so long that it would be hard to list it all out for people to see in our command lines. Instead we could make it easy for our users and just grab three random fonts and output all three results.
 
-First we can get all the fonts:
+>[action]
+> First we can get all the fonts:
 
 ```py
 data = requests.get('http://artii.herokuapp.com/fonts_list')
+print data
 ```
 
 Next we can turn this list of fonts into an array data structure using the `.split()` and split them up by `\n` the invisible new line character.
 
-```py
+>[action]
+> Use split to break up the array:
+>```py
 fontsArray = data.text.split('\n')
 ```
 
@@ -149,7 +156,6 @@ import requests
 data = requests.get('http://artii.herokuapp.com/fonts_list')
 fontsArray = data.text.split('\n')
 font = random.choice(fontsArray)
-
 print(font)
 ```
 
