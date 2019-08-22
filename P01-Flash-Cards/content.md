@@ -58,8 +58,8 @@ You can use Atom like any other word processor you are used to, but you can also
 Let's try using the command line command `atom .` to open the directory we are currently in. Make sure you have navigated to the `flash-cards` directory, then type the following:
 
 >[action]
-
->```
+>
+```
 (flash-cards)$ atom .
 ```
 
@@ -85,8 +85,8 @@ Let's imagine we have a list of Middle Eastern countries and their capitals. Let
 
 >[action]
 >Go into your `me-capitals.json` file and let's add a little bit of JSON.
-
->```json
+>
+```json
 {
   "cards": [
     {
@@ -110,14 +110,14 @@ A python script `.py` can read files around it using file system commands native
 Let's use these commands to read the `me-capitals.json` file and parse the JSON into a data format python can manipulate: a **Dictionary**. (Python can't work with JSON itself, it has to change it into an equivalent structure that it understands).
 
 >[action]
->Now we need to read this file and print its contents.
-
->```py
+> Now we need to read this file and print its contents.
+>
+```py
 # flashcards.py
-
+>
 # import the json module from python3
 import json
-
+>
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
@@ -135,12 +135,18 @@ So finally we use the `json` module we imported above to `.load(f)` that is to l
 
 >[action]
 >Always test your code after each step by running it and checking that the step you just completed is working. Run your project with this command:
-
->```
+>
+```
 $ python3 flashcards.py
 ```
 
-When you run this, you should see the contents of the file. The only difference between JSON and a python dictionary is the keys have `''` single quotes whereas the JSON has `""` double-quotes. Now that you are an engineer, you should be aware and focus on tiny differences like that because they matter to the computer.
+When you run this, you should see the contents of the file:
+
+```
+{'cards': [{'q': 'What is the capital of Syria?', 'a': 'Damascus'}]}
+```
+
+The only difference between JSON and a python dictionary is the keys have `''` single quotes whereas the JSON has `""` double-quotes. Now that you are an engineer, you should be aware and focus on tiny differences like that because they matter to the computer.
 
 # For Loop Iterator
 
@@ -161,18 +167,20 @@ We will use what is called a For Loop iterator to iterate over all the cards. Th
 for <<ITEM>> in <<LIST or ARRAY>>
 ```
 
-So in our case for our cards:
-
+> [action]
+>
+> Let's add a for loop to our flashcards:
+>
 ```py
 # flashcards.py
-
+>
 # import the json module from python3
 import json
-
+>
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
-
+>
 for i in data["cards"]:
     print(i)
 ```
@@ -185,12 +193,18 @@ for i in data["cards"]:
 
 We need to access the `cards` key, to get back its array value `[{'q': 'What is the capital of Syria', 'a': 'Damascus'}]`.
 
-Run the program.
+> [action]
+>
+> Run the program again using `python3 flashcards.py` and make sure you get output as described above
 
 # A Few More Questions
 
-We're using learning the capitals of countries in the middle east for our cards. Let's add a few more capitals to our `me-capitals.json` file:
+We're using learning the capitals of countries in the middle east for our cards.
 
+> [action]
+>
+> Let's add a few more capitals to our `me-capitals.json` file:
+>
 ```json
 {
   "cards": [
@@ -222,18 +236,22 @@ Now rerun the program and see if your iterator prints out each question
 
 # Getting CLI Input
 
-Ok now we need to get the user to actually try to answer each question. To access the question in each object, we'll need to use the same way we accessed `cards` inside of data: `i["q"]`. And we'll use the `input` built-in function to prompt the user to enter an input.
+Ok now we need to get the user to actually try to answer each question. To access the question in each object, we'll do so using the same way we accessed `cards` inside of data: `i["q"]`. And we'll use the `input` built-in function to prompt the user to enter an input.
 
+> [action]
+>
+> Update `flashcards.py` to the following:
+>
 ```py
 # flashcards.py
-
+>
 # import the json module from python3
 import json
-
+>
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
-
+>
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
     print(guess)
@@ -253,41 +271,49 @@ So now we've done four of our five steps we set out to do, so all we have now is
 
 We'll check correct and incorrect using the equality operator: `==`.
 
+> [action]
+>
+> Update your for loop in `flashcards.py` to the following:
+>
 ```py
 # flashcards.py
-
+>
 import json
-
+>
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
-
+>
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
-
+>
     if guess == i["a"]:
         print("Correct!")
     else:
         print("Incorrect!")
 ```
 
+<!-- -->
+
 >[info]
 >A note on **Clear Variable Naming**. Variables can be named almost anything, so it is important to pick names that are logical and semantic. We named the user's input "guess" because in terms of this program, that is what it is, the user's input is a guess at what the flashcard's answer is. Always consider carefully what to name a variable and pick a logical and clear name.
 
 # Adding the Correct Answer When Incorrect
 
-Now let's polish up the user experience by display the correct answer when someone get's the answer wrong.
-
+> [action]
+>
+> Now let's polish up the user experience by display the correct answer when someone get's the answer wrong.
+>
 ```py
 # flashcards.py
-
+>
 import json
-
+>
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
-
+>
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
-
+>
     if guess == i["a"]:
         print("Correct!")
     else:
@@ -312,7 +338,7 @@ if guess.lower() == i["a"].lower():
 ...
 ```
 
-Now the comparison is only between all lowercase text no matter what.
+Now the comparison is only between all lowercase text no matter what. You can try this out by changing the code in `flashcards.py` if you want to see it in action.
 
 # Brainstorm New Features
 
@@ -325,31 +351,34 @@ What else could you add to this program? Here are some ideas:
 1. Create various `data` files that are different sets of questions and let people pick which one they want to do.
 1. Let people enter their own cards and save those as libraries of questions and answers.
 
-As a stretch challenge now or later, come back and try to implement one of these. But let's do one of them right now.
+As a **stretch challenge** now or later, come back and try to implement one of these. But let's do one of them right now.
 
 # Keeping Track of Score
 
 Let's use a variable called `score` to keep track of score with each answer.
 
+> [action]
+>
+> Update `flashcards.py` to the following:
+>
 ```py
 # flashcards.py
-
 import json
-
+>
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
-
+>
 # initialize total as the length of the cards array
 total = len(data["cards"])
 # initialize score as 0
 score = 0
-
+>
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
-
+>
     if guess == i["a"]:
         # increment score up one
-        ++score
+        score += 1
         # interpolate score and total into the response
         print(f"Correct! Current score: {score}/{total}")
     else:
@@ -361,14 +390,16 @@ Examine the code above and look at the comments. You can see that we have made 4
 
 1. We initialized `total` as the length of the cards array using the `len(array)` built-in function.
 1. We initialized `score` as 0 because everyone starts with 0 correct answers.
-1. Next when they get a write answer we **increment** `score` by 1 using the `++` increment operator of python.
+1. Next when they get a right answer we **increment** `score` by 1 using `+= 1`
 1. Finally we use a new feature of Python 3.6 called **f-strings** to interpolate `{score}` and `{total}` to our response in the correct and incorrect messages.
 
 Check and see if yours works and troubleshoot any errors.
 
-## Stretch: f-strings
+## Stretch Challenge: f-strings
 
-Can you use **f-strings** to change how we do string interpolations throughout this program?
+> [challenge]
+>
+> Can you use **f-strings** to change how we do string interpolations throughout this program?
 
 # In Review: You Can ...
 
