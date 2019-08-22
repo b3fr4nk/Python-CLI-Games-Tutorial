@@ -19,8 +19,12 @@ By the end of this chapter you will be able to:
 
 Bear Ninja Cowboy or BNC will be made out of just one python file. You can tell if a file is python code if it ends in the `.py` document type.
 
-If you don't already have one, navigate to the root of your computer, to the `~` directory, and make a new directory called `code`, then in that directory make a new directory called `cli-games`. We'll put all the games we make in this tutorial in this folder. In that directory make a new file called `bnc.py`.
+If you don't already have one, navigate to the root of your computer, to the `~` directory, and make a new directory called `code`, then in that directory make a new directory called `cli-games`. We'll put all the games we make in this tutorial in this folder.
 
+> [action]
+>
+> In that directory make a new file called `bnc.py`.
+>
 ```bash
 $ cd ~
 $ mkdir code
@@ -32,8 +36,10 @@ $ touch bnc.py
 
 # Open the Directory in Atom
 
-Using the [atom text editor](https://atom.io/) open the `cli-games` directory using the `atom` command:
-
+> [action]
+>
+> Using the [atom text editor](https://atom.io/) open the `cli-games` directory using the `atom` command:
+>
 ```
 $ atom .
 ```
@@ -49,10 +55,10 @@ Our first step to make a Bear, Ninja, Cowboy game is to get some input from play
 
 >[action]
 >Let's put in the absoulte least code we can to achieve our first goal of getting command line input.
-
->```py
+>
+```py
 # cli-games/bnc.py
-
+>
 input = input("Greetings, what is your name? > ")
 print("Greetings", input)
 ```
@@ -63,15 +69,19 @@ To run this file, we can use our terminal again if we are in the `cli-games` dir
 (cli-games)$ python3 bnc.py
 ```
 
-You should see the input request, and if you type your name, you should see "Greetings <<Your Name>>" print out in the terminal.
+You should see the input request, and if you type your name, you should see `"Greetings <<Your Name>>"` print out in the terminal.
 
 ## Updating For Our Purposes
 
 Now we need to ask people not their name, but what role they'd like to play.
 
+> [action]
+>
+> Update `bnc.py` to the following:
+>
 ```py
 # cli-games/bnc.py
-
+>
 player = input("Bear, Ninja, or Cowboy? > ")
 print(player)
 ```
@@ -80,7 +90,7 @@ Now when we run the program, we should see the role the player has picked. If th
 
 # Introducing Randomness
 
-Bear Ninja Cowboy basically has three parts:
+Bear Ninja Cowboy basically has four parts:
 
 1. DONE - Command Line user input
 1. The computer randomly picking a role
@@ -89,7 +99,7 @@ Bear Ninja Cowboy basically has three parts:
 
 We've already got some command line input coming in, so let's move on to randomly assigning the computer a role of either Bear, Ninja, or Cowboy.
 
-In order to get a random role, we have to do three things, and to track those three we'll write three lines of commented out psuedocode
+In order to get a random role, we have to do three things, and to track those three we'll write three lines of commented out pseudocode:
 
 ```python
 # Import the random library
@@ -100,22 +110,26 @@ In order to get a random role, we have to do three things, and to track those th
 ```
 
 > [info]
-> **Comments and Psuedocode**: Notice that any code prefaced with a `#` pound sign is greyed out in your text editor. That is because everything to the right of a pound sign is not read by the computer. It is called a "Comment" or "Psuedocode" and is read only by humans.
+> **Comments and Pseudocode**: Notice that any code prefaced with a `#` pound sign is greyed out in your text editor. That is because everything to the right of a pound sign is not read by the computer. It is called a "Comment" or "Pseudocode" and is read only by humans.
 
-## Filling in Psuedocode
+## Filling in Pseudocode
 
-Now that we have our psuedocode plan, we can start to write code for each line. We'll test it by printing the randomly selected role.
+Now that we have our pseudocode plan, we can start to write code for each line. We'll test it by printing the randomly selected role.
 
+> [action]
+>
+> Update `bnc.py` to the following:
+>
 ```python
 # Import the random method from the randint module
 from random import randint
-
+>
 # Define roles
 roles = ["Bear", "Ninja", "Cowboy"]
-
+>
 # Generate a random role using an array
 computer = roles[randint(0,2)]
-
+>
 print(computer)
 ```
 
@@ -130,24 +144,26 @@ So now we have two of the four steps done. Let's do the next one. Check who won:
 1. Checking the player's role and the computer's role
 1. Displaying who won
 
-To check who has won we have to put the first two steps together
-
+> [action]
+>
+> To check both roles, we need to put the first two steps together:
+>
 ```py
 # cli-games/bnc.py
-
+>
 from random import randint
-
+>
 # Define roles
 roles = ["Bear", "Ninja", "Cowboy"]
-
+>
 # Generate a random role using an array
 computer = roles[randint(0,2)]
-
+>
 # Get player input
 player = input("Bear, Ninja, or Cowboy? > ")
-
+>
 # Compare computer and player role
-
+>
 print(computer, player)
 ```
 
@@ -163,31 +179,40 @@ We're going to break down the last step into a few sub-steps.
   1. Display if one of the three roles won
   1. Display if any of the three roles won
 
-Now that we can see the computer's role and the player's role, we can setup some logic to compare the two. First lets check if there is a draw:
+Now that we can see the computer's role and the player's role, we can setup some logic to compare the two.
 
+> [action]
+>
+> First lets check if there is a draw:
+>
 ```py
 # cli-games/bnc.py
 ...
-
-if computer == player
+# Replace the print(computer, player) line with the following:
+if computer == player:
   print("DRAW!")
-else
+else:
   print(computer, player)
 ```
 
 The above code is called an `if/else statement`, it is part of a larger code pattern called **Control Flow** which is how software languages deal with and use Boolean Logic.
 
 >[info]
+>
 >**Boolean Logic** is a form of algebra which is centered around three simple words known as Boolean Operators: “Or,” “And,” and “Not”. At the heart of Boolean Logic is the idea that all values are either true or false. (lotame.com)
 
 # Who Won?
 
 So we have the DRAW case but we now need to check for win and loss cases. Let's do the case where the computer is a cowboy first. There are two options: the player can either be a bear (loses, cowboy shoots bear) or a ninja (wins, ninja defeats cowboy).
 
+> [action]
+>
+> Update your `if` statement to include the following:
+>
 ```py
 # cli-games/bnc.py
 ...
-
+>
 if computer == player:
   print("DRAW!")
 elif computer == "Cowboy":
@@ -200,6 +225,7 @@ else:
 ```
 
 If you are missing some syntax, like a `:` or your indentation is off. You might get an error that looks like this:
+
 ```
   File "bnc-init.py", line 26
     elif computer == "Ninja"
@@ -209,12 +235,14 @@ SyntaxError: invalid syntax
 
 Treat errors like this as hints to how to fix your code so it works. In the case here, it means a `:` is missing at the end of the `elif` line.
 
-If that's working, then we need to add other two other options.
-
+> [action]
+>
+> If that's working, then we need to add other two other options.
+>
 ```py
 # cli-games/bnc.py
 ...
-
+>
 if computer == player:
   print("DRAW!")
 elif computer == "Cowboy":
@@ -227,20 +255,23 @@ elif computer == "Bear":
     print("You win!", player, "shoots", computer)
   else: # computer is bear, player is ninja
     print("You lose!", player, "is eaten by", computer)
-elif computer == "Ninja"
+elif computer == "Ninja":
   if player == "Cowboy":
     print("You lose!", player, "is defeated by", computer)
   else: # computer is ninja, player is bear
     print("You win!", player, "eats", computer)
 ```
 
-This is pretty good, but a bit weird because we probably expect the player to come first in every win/loss statement don't we... Let's fix this using the passive voice.
+This is pretty good, but a bit weird because we probably expect the player to come first in every win/loss statement don't we...
 
+> [action]
+>
+> Let's fix this using the passive voice.
+>
 ```py
 # cli-games/bnc.py
-
+>
 ...
-
 if computer == player:
   print("DRAW!")
 elif computer == "Cowboy":
@@ -253,34 +284,40 @@ elif computer == "Bear":
     print("You win!", player, "shoots", computer)
   else: # computer is bear, player is ninja
     print("You lose!", player, "is eaten by", computer)
-elif computer == "Ninja"
+elif computer == "Ninja":
   if player == "Cowboy":
     print("You lose!", player, "is defeated by", computer)
   else: # computer is ninja, player is bear
     print("You win!", player, "eats", computer)
 ```
 
-# Play Again
+# Game Loop
 
 So now we have a game, but do you notice how it ends right away every time? What if we wanted a smoother user experience and we wanted to play again and again. Or even offered a question "Do you want to play again?". In order to do this we need to use a `while` statement.
 
 >[info]
+>
 >`while` is a control flow word that tells a section of code to keep running so long as a condition is met.
 
+<!-- -->
 
+> [action]
+>
+> After the `computer` gets assigned a role, replace all other code with the following:
+>
 ```py
 # cli-games/bnc.py
-
+>
 ...
-
+>
 player = False
-
+>
 while player == False:
     # Get player input
     player = input("Bear, Ninja, or Cowboy? > ")
-
+>
     # Compare computer and player role
-
+>
     if computer == player:
       print("DRAW!")
     elif computer == "Cowboy":
@@ -298,7 +335,7 @@ while player == False:
         print("You lose!", computer, "defeats", player)
       else: # computer is ninja, player is bear
         print("You win!", player, "eats", computer)
-
+>
     player = False
     computer = roles[randint(0,2)]
 ```
@@ -311,14 +348,14 @@ What if we didn't want the game to end, but prompted people to play again, how w
 
 >[action]
 >Let's make the user experience even cleaner by asking if people want to play again or not.
-
->```py
+>
+```py
 # cli-games/bnc.py
-
+>
 ...
-
-    # after checking who won
-
+>
+    # after checking who won, put the following code
+>
     play_again = input("Would you like to play again? (yes/no) > ")
     if play_again == 'yes':
       player = False
@@ -331,11 +368,13 @@ We're using control flow again, this time to check if the input is `yes`. If it 
 
 # More Features
 
-What else could you add to this game?
-
-Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
-
-Anything else?
+> [challenge]
+>
+> What else could you add to this game?
+>
+>Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
+>
+>Anything else?
 
 # In Review: You Can ...
 
