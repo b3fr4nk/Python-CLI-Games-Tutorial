@@ -1,7 +1,4 @@
----
-title: "Getting Started with Python"
-slug: installing-python
----
+# Getting Started with Python
 
 So you want to learn computer science? Great! Welcome!
 
@@ -23,15 +20,11 @@ By the end of this chapter you will be able to:
 
 We'll be installing python using your computers Terminal, or Command Line Interface (CLI), or simply the command line. The CLI is just a text-based interface for using your computer. You can create and copy and paste files, you can open programs, you can even install and uninstall programs all from your command line.
 
->[action]
->
-> Open your command line by using Spotlight, so hit `Command` + `Spacebar` to open your Spotlight, then type "Terminal" and hit enter.
+Open your command line by using Spotlight, so hit `Command` + `Spacebar` to open your Spotlight, then type "Terminal" and hit enter.
 
 Your terminal will open. It's kinda ugly, so we're going to make it pretty first.
 
-> [action]
->
-> Go to your settings of your terminal by hitting `Command` + `,` and under the Profiles tab, select the "Pro" style configuration and click "Default". Now close and reopen the Terminal.
+Go to your settings of your terminal by hitting `Command` + `,` and under the Profiles tab, select the "Pro" style configuration and click "Default". Now close and reopen the Terminal.
 
 Looking sweet :D
 
@@ -39,19 +32,12 @@ Looking sweet :D
 
 First we need some extra tools published by Apple to transform your computer from a normal, regular non-developer computer, into a suped-up engineer's computer!
 
+Let's do that by pasting this command into your terminal (**NOTE: don't include the `$`** — that just means you should run this in the command line):
 
->[action]
->
-> Let's do that by pasting this command into your terminal (**NOTE: don't include the `$`** — that just means you should run this in the command line):
->
 ```bash
 $ xcode-select --install
 ```
 
-<!-- -->
-
-> [info]
->
 > What did we just do? We installed the [Xcode Command Line Tools](https://developer.apple.com/library/archive/technotes/tn2339/_index.html) package. This package gives you all the tools you'll need to do development in the terminal!
 
 Once your xcode commandline tools are installed, move onto the next step. Installing Homebrew.
@@ -60,8 +46,7 @@ Once your xcode commandline tools are installed, move onto the next step. Instal
 
 If we want to install tools and applications using the terminal, the best program to use is [Homebrew](https://brew.sh/).
 
->[action]
->If you don't already have Homebrew, install it by following the instructions under `Install Homebrew` on the [Homebrew website](https://brew.sh/)
+If you don't already have Homebrew, install it by following the instructions under `Install Homebrew` on the [Homebrew website](https://brew.sh/)
 
 This will install homebrew into your computer so now we can use it to install Python.
 
@@ -69,10 +54,8 @@ This will install homebrew into your computer so now we can use it to install Py
 
 We will be using the most advanced version of python there is which as of writing this is Python 3.
 
->[action]
->
->To install it on your computer, use homebrew in, you guessed it, the command line terminal.
->
+To install it on your computer, use homebrew in, you guessed it, the command line terminal.
+
 ```bash
 $ brew install python3
 ```

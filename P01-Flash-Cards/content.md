@@ -109,15 +109,12 @@ A python script `.py` can read files around it using file system commands native
 
 Let's use these commands to read the `me-capitals.json` file and parse the JSON into a data format python can manipulate: a **Dictionary**. (Python can't work with JSON itself, it has to change it into an equivalent structure that it understands).
 
->[action]
-> Now we need to read this file and print its contents.
->
 ```py
 # flashcards.py
->
+
 # import the json module from python3
 import json
->
+
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
@@ -397,9 +394,7 @@ Check and see if yours works and troubleshoot any errors.
 
 ## Stretch Challenge: f-strings
 
-> [challenge]
->
-> Can you use **f-strings** to change how we do string interpolations throughout this program?
+Can you use **f-strings** to change how we do string interpolations throughout this program?
 
 # In Review: You Can ...
 
