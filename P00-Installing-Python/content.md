@@ -75,3 +75,7 @@ On to the next chapter!
 1. Open and use your computer's terminal.
 1. Install Homebrew, a package manager for installing programs in your computer.
 1. Install Python3 to get started with Python.
+
+# Next Steps
+
+Onward! Click [here][(P01-Flash-Cards/content.md) to move onto the next section about making a flash card tester.

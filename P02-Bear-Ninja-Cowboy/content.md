@@ -1,7 +1,4 @@
----
-title: "Bear, Ninja, Cowboy"
-slug: bear-ninja-cowboy
----
+# Bear, Ninja, Cowboy
 
 You might know the game as "Rock, Paper, Scissors"—but for the sake of this tutorial, we will be building a game of Bear, Ninja, Cowboy.
 
@@ -14,17 +11,14 @@ By the end of this chapter you will be able to:
 1. Use a `while` statement to make your game stay on
 1. Use the keyword `break` to end the program
 
-
 # Getting Started
 
 Bear Ninja Cowboy or BNC will be made out of just one python file. You can tell if a file is python code if it ends in the `.py` document type.
 
 If you don't already have one, navigate to the root of your computer, to the `~` directory, and make a new directory called `code`, then in that directory make a new directory called `cli-games`. We'll put all the games we make in this tutorial in this folder.
 
-> [action]
->
-> In that directory make a new file called `bnc.py`.
->
+In that directory make a new file called `bnc.py`.
+
 ```bash
 $ cd ~
 $ mkdir code
@@ -36,29 +30,23 @@ $ touch bnc.py
 
 # Open the Directory in Atom
 
-> [action]
->
-> Using the [atom text editor](https://atom.io/) open the `cli-games` directory using the `atom` command:
->
+Using the [atom text editor](https://atom.io/) open the `cli-games` directory using the `atom` command:
+
 ```
 $ atom .
 ```
 
 # Getting CLI Input
 
-> [info]
-> What is code? An easy to understand definition is
-> **Code is very, very clear instructions for a computer**.
-> As you start on the path to becoming a computer scientist and software engineer, start paying very close attention to the tiny details of code, because the computer will follow all code exactly as it is written.
+> What is code? An easy to understand definition is that **Code is very, very clear instructions for a computer**. As you start on the path to becoming a computer scientist and software engineer, start paying very close attention to the tiny details of code, because the computer will follow all code exactly as it is written.
 
 Our first step to make a Bear, Ninja, Cowboy game is to get some input from players with the command line input.
 
->[action]
->Let's put in the absoulte least code we can to achieve our first goal of getting command line input.
->
+Let's put in the absoulte least code we can to achieve our first goal of getting command line input.
+
 ```py
 # cli-games/bnc.py
->
+
 input = input("Greetings, what is your name? > ")
 print("Greetings", input)
 ```
@@ -75,13 +63,11 @@ You should see the input request, and if you type your name, you should see `"Gr
 
 Now we need to ask people not their name, but what role they'd like to play.
 
-> [action]
->
-> Update `bnc.py` to the following:
->
+Update `bnc.py` to the following:
+
 ```py
 # cli-games/bnc.py
->
+
 player = input("Bear, Ninja, or Cowboy? > ")
 print(player)
 ```
@@ -109,27 +95,24 @@ In order to get a random role, we have to do three things, and to track those th
 # Generate a random number to pick a random element from the array
 ```
 
-> [info]
 > **Comments and Pseudocode**: Notice that any code prefaced with a `#` pound sign is greyed out in your text editor. That is because everything to the right of a pound sign is not read by the computer. It is called a "Comment" or "Pseudocode" and is read only by humans.
 
 ## Filling in Pseudocode
 
 Now that we have our pseudocode plan, we can start to write code for each line. We'll test it by printing the randomly selected role.
 
-> [action]
->
-> Update `bnc.py` to the following:
->
+Update `bnc.py` to the following:
+
 ```python
 # Import the random method from the randint module
 from random import randint
->
+
 # Define roles
 roles = ["Bear", "Ninja", "Cowboy"]
->
+
 # Generate a random role using an array
 computer = roles[randint(0,2)]
->
+
 print(computer)
 ```
 
@@ -144,26 +127,24 @@ So now we have two of the four steps done. Let's do the next one. Check who won:
 1. Checking the player's role and the computer's role
 1. Displaying who won
 
-> [action]
->
-> To check both roles, we need to put the first two steps together:
->
+To check both roles, we need to put the first two steps together:
+
 ```py
 # cli-games/bnc.py
->
+
 from random import randint
->
+
 # Define roles
 roles = ["Bear", "Ninja", "Cowboy"]
->
+
 # Generate a random role using an array
 computer = roles[randint(0,2)]
->
+
 # Get player input
 player = input("Bear, Ninja, or Cowboy? > ")
->
+
 # Compare computer and player role
->
+
 print(computer, player)
 ```
 
@@ -175,16 +156,14 @@ We're going to break down the last step into a few sub-steps.
 1. DONE - The computer randomly picking a role
 1. DONE - Checking the player's role and the computer's role
 1. Displaying who won
-  1. Display if there is a Draw
-  1. Display if one of the three roles won
-  1. Display if any of the three roles won
+      1. Display if there is a Draw
+      1. Display if one of the three roles won
+      1. Display if any of the three roles won
 
 Now that we can see the computer's role and the player's role, we can setup some logic to compare the two.
 
-> [action]
->
-> First lets check if there is a draw:
->
+First lets check if there is a draw:
+
 ```py
 # cli-games/bnc.py
 ...
@@ -197,22 +176,18 @@ else:
 
 The above code is called an `if/else statement`, it is part of a larger code pattern called **Control Flow** which is how software languages deal with and use Boolean Logic.
 
->[info]
->
 >**Boolean Logic** is a form of algebra which is centered around three simple words known as Boolean Operators: “Or,” “And,” and “Not”. At the heart of Boolean Logic is the idea that all values are either true or false. (lotame.com)
 
 # Who Won?
 
 So we have the DRAW case but we now need to check for win and loss cases. Let's do the case where the computer is a cowboy first. There are two options: the player can either be a bear (loses, cowboy shoots bear) or a ninja (wins, ninja defeats cowboy).
 
-> [action]
->
-> Update your `if` statement to include the following:
->
+Update your `if` statement to include the following:
+
 ```py
 # cli-games/bnc.py
 ...
->
+
 if computer == player:
   print("DRAW!")
 elif computer == "Cowboy":
@@ -235,14 +210,12 @@ SyntaxError: invalid syntax
 
 Treat errors like this as hints to how to fix your code so it works. In the case here, it means a `:` is missing at the end of the `elif` line.
 
-> [action]
->
-> If that's working, then we need to add other two other options.
->
+If that's working, then we need to add other two other options.
+
 ```py
 # cli-games/bnc.py
 ...
->
+
 if computer == player:
   print("DRAW!")
 elif computer == "Cowboy":
@@ -264,13 +237,11 @@ elif computer == "Ninja":
 
 This is pretty good, but a bit weird because we probably expect the player to come first in every win/loss statement don't we...
 
-> [action]
->
-> Let's fix this using the passive voice.
->
+Let's fix this using the passive voice.
+
 ```py
 # cli-games/bnc.py
->
+
 ...
 if computer == player:
   print("DRAW!")
@@ -295,29 +266,23 @@ elif computer == "Ninja":
 
 So now we have a game, but do you notice how it ends right away every time? What if we wanted a smoother user experience and we wanted to play again and again. Or even offered a question "Do you want to play again?". In order to do this we need to use a `while` statement.
 
->[info]
->
 >`while` is a control flow word that tells a section of code to keep running so long as a condition is met.
 
-<!-- -->
+After the `computer` gets assigned a role, replace all other code with the following:
 
-> [action]
->
-> After the `computer` gets assigned a role, replace all other code with the following:
->
 ```py
 # cli-games/bnc.py
->
+
 ...
->
+
 player = False
->
+
 while player == False:
     # Get player input
     player = input("Bear, Ninja, or Cowboy? > ")
->
+
     # Compare computer and player role
->
+
     if computer == player:
       print("DRAW!")
     elif computer == "Cowboy":
@@ -335,7 +300,7 @@ while player == False:
         print("You lose!", computer, "defeats", player)
       else: # computer is ninja, player is bear
         print("You win!", player, "eats", computer)
->
+
     player = False
     computer = roles[randint(0,2)]
 ```
@@ -346,16 +311,15 @@ By setting `player` to `False` at the end keeps the `while` statement running fo
 
 What if we didn't want the game to end, but prompted people to play again, how would we do that?
 
->[action]
->Let's make the user experience even cleaner by asking if people want to play again or not.
->
+Let's make the user experience even cleaner by asking if people want to play again or not.
+
 ```py
 # cli-games/bnc.py
->
+
 ...
->
+
     # after checking who won, put the following code
->
+
     play_again = input("Would you like to play again? (yes/no) > ")
     if play_again == 'yes':
       player = False
@@ -368,13 +332,11 @@ We're using control flow again, this time to check if the input is `yes`. If it 
 
 # More Features
 
-> [challenge]
->
-> What else could you add to this game?
->
->Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
->
->Anything else?
+What else could you add to this game?
+
+Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
+
+Anything else?
 
 # In Review: You Can ...
 
@@ -387,3 +349,7 @@ So in review here's what you did and what you can do now:
 * You can use **Control Flow** if/else/elif statements
 * You can use a `while` statement to make your game stay on
 * You use the keyword `break` to end the program
+
+# Next Steps
+
+Almost done! Click [here][(P03-ASCII-Art/content.md) to move onto the next section about ASCII Art.

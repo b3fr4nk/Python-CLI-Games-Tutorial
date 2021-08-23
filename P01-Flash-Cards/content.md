@@ -1,7 +1,4 @@
----
-title: "Flash Card Tester"
-slug: flash-cards
----
+# Flash Card Tester
 
 Ever need to memorize something? Flash cards can really do the trick! So we're going to build a command line flash card tester application. Let's get started.
 
@@ -20,11 +17,9 @@ Flash Cards will be made out of just one python file. You can tell if a file is 
 
 If you don't already have one, navigate to the root of your computer, to the `~` directory, and make a new directory called `code`, then in that directory make a new directory called `cli-games`. We'll put all the games we make in this tutorial in this folder. In that directory make a new directory called `flash-cards` and in that directory make two files, one called `flashcards.py` and one called `me-capitals.json` (where we will put our flash card data of "Middle Eastern Capitals").
 
+Make your initial project folder and two main files:
 
->[action]
->Make your initial project folder and two main files:
-
->```bash
+```bash
 $ cd ~
 $ mkdir code
 $ cd code
@@ -46,7 +41,6 @@ Now your folder should look like this:
   ...
 ```
 
->[info]
 >It is important to keep your coding projects organized on your computer. Having a centralized folder called `code` or `dev` where you put all projects is a great pattern to follow.
 
 # Open the Directory in Atom
@@ -57,8 +51,6 @@ You can use Atom like any other word processor you are used to, but you can also
 
 Let's try using the command line command `atom .` to open the directory we are currently in. Make sure you have navigated to the `flash-cards` directory, then type the following:
 
->[action]
->
 ```
 (flash-cards)$ atom .
 ```
@@ -83,9 +75,8 @@ We have basically five steps:
 
 Let's imagine we have a list of Middle Eastern countries and their capitals. Let's write those into a format called JSON.
 
->[action]
->Go into your `me-capitals.json` file and let's add a little bit of JSON.
->
+Go into your `me-capitals.json` file and let's add a little bit of JSON.
+
 ```json
 {
   "cards": [
@@ -99,7 +90,6 @@ Let's imagine we have a list of Middle Eastern countries and their capitals. Let
 
 This bit of JSON has one root key called `cards`, and the value associated with `cards` is an array of cards. Each element in the array `[]` is an object `{}` with two keys `q` for "question" and `a` for "answer".
 
->[info]
 > JSON is a very popular way to store and transmit data in the internet. It is a great format for data because it is easy for computers and humans to read it and write it.
 > JSON's basic structure is comma-delimited **Key-Value Pairs** surrounded by curly-bracies `{}`. Notice that keys are strings, and values can be any form of data, including arrays `[]`, and objects `{}`. By having arrays and objects as values gives JSON a nested tree structure. As you use JSON more you will become very familiar with its structure.
 
@@ -130,9 +120,8 @@ The `as f:` part means that the contents of the file is passed into the `open` f
 
 So finally we use the `json` module we imported above to `.load(f)` that is to load the contents of the file and parse it from json into a python dictionary called `data`.
 
->[action]
->Always test your code after each step by running it and checking that the step you just completed is working. Run your project with this command:
->
+Always test your code after each step by running it and checking that the step you just completed is working. Run your project with this command:
+
 ```
 $ python3 flashcards.py
 ```
@@ -155,7 +144,6 @@ We've completed the first two steps, so next we have to iterate over the `cards`
 1. Get the users's input for each question
 1. Check the users input against the answer and display "Correct!" or "Incorrect!"
 
->[info]
 >**Iterating** over something in code is like a teacher calling roll. The teacher calls out a name in their list of students. Each student responds present if they are present, and there is no response if they are absent. In code, you could say the teacher **iterates** through the array of students and calls a function that returns “present” if the student is present, otherwise it returns "<<silence>>".
 
 We will use what is called a For Loop iterator to iterate over all the cards. The For Loop has this structure:
@@ -164,20 +152,18 @@ We will use what is called a For Loop iterator to iterate over all the cards. Th
 for <<ITEM>> in <<LIST or ARRAY>>
 ```
 
-> [action]
->
-> Let's add a for loop to our flashcards:
->
+Let's add a for loop to our flashcards:
+
 ```py
 # flashcards.py
->
+
 # import the json module from python3
 import json
->
+
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
->
+
 for i in data["cards"]:
     print(i)
 ```
@@ -190,18 +176,14 @@ for i in data["cards"]:
 
 We need to access the `cards` key, to get back its array value `[{'q': 'What is the capital of Syria', 'a': 'Damascus'}]`.
 
-> [action]
->
-> Run the program again using `python3 flashcards.py` and make sure you get output as described above
+Run the program again using `python3 flashcards.py` and make sure you get output as described above
 
 # A Few More Questions
 
 We're using learning the capitals of countries in the middle east for our cards.
 
-> [action]
->
-> Let's add a few more capitals to our `me-capitals.json` file:
->
+Let's add a few more capitals to our `me-capitals.json` file:
+
 ```json
 {
   "cards": [
@@ -235,20 +217,18 @@ Now rerun the program and see if your iterator prints out each question
 
 Ok now we need to get the user to actually try to answer each question. To access the question in each object, we'll do so using the same way we accessed `cards` inside of data: `i["q"]`. And we'll use the `input` built-in function to prompt the user to enter an input.
 
-> [action]
->
-> Update `flashcards.py` to the following:
->
+Update `flashcards.py` to the following:
+
 ```py
 # flashcards.py
->
+
 # import the json module from python3
 import json
->
+
 # open the file and parse the JSON
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
->
+
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
     print(guess)
@@ -268,49 +248,42 @@ So now we've done four of our five steps we set out to do, so all we have now is
 
 We'll check correct and incorrect using the equality operator: `==`.
 
-> [action]
->
-> Update your for loop in `flashcards.py` to the following:
->
+Update your for loop in `flashcards.py` to the following:
+
 ```py
 # flashcards.py
->
+
 import json
->
+
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
->
+
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
->
+
     if guess == i["a"]:
         print("Correct!")
     else:
         print("Incorrect!")
 ```
 
-<!-- -->
-
->[info]
 >A note on **Clear Variable Naming**. Variables can be named almost anything, so it is important to pick names that are logical and semantic. We named the user's input "guess" because in terms of this program, that is what it is, the user's input is a guess at what the flashcard's answer is. Always consider carefully what to name a variable and pick a logical and clear name.
 
 # Adding the Correct Answer When Incorrect
 
-> [action]
->
-> Now let's polish up the user experience by display the correct answer when someone get's the answer wrong.
->
+Now let's polish up the user experience by display the correct answer when someone get's the answer wrong.
+
 ```py
 # flashcards.py
->
+
 import json
->
+
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
->
+
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
->
+
     if guess == i["a"]:
         print("Correct!")
     else:
@@ -354,25 +327,23 @@ As a **stretch challenge** now or later, come back and try to implement one of t
 
 Let's use a variable called `score` to keep track of score with each answer.
 
-> [action]
->
-> Update `flashcards.py` to the following:
->
+Update `flashcards.py` to the following:
+
 ```py
 # flashcards.py
 import json
->
+
 with open('me-capitals.json', 'r') as f:
     data = json.load(f)
->
+
 # initialize total as the length of the cards array
 total = len(data["cards"])
 # initialize score as 0
 score = 0
->
+
 for i in data["cards"]:
     guess = input(i["q"] + " > ")
->
+
     if guess == i["a"]:
         # increment score up one
         score += 1
@@ -405,3 +376,7 @@ So in review here's what you did and what you can do now:
 1. You can access elements in a python dictionary
 1. You can iterate over an array
 1. You can take user input from the command line
+
+# Next Steps
+
+Click [here][(P02-Bear-Ninja-Cowboy/content.md) to move onto the next section about making a game similar to "Rock, Paper, Sciccors".

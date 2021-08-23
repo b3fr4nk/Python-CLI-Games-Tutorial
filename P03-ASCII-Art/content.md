@@ -1,7 +1,4 @@
----
-title: "ASCII Art"
-slug: ascii-art
----
+# ASCII Art
 
 ASCII Art is when you use ASCII characters as a font like this:
 
@@ -45,10 +42,8 @@ We are going to take a few steps to make a few features:
 1. Get font choice from user
 1. See all possible font choices
 
-> [action]
->
-> But to get started we have to first just make our program's root file `asciiart.py`
->
+But to get started we have to first just make our program's root file `asciiart.py`
+
 ```bash
 $ cd cli-games
 $ touch asciiart.py
@@ -62,14 +57,12 @@ We're not going to get too deep into web standards, for this tutorial you are ju
 
 To make a request to a url using python we can use an extremely popular module called `requests`.
 
-> [action]
->
-> Let's import this and make a request in our program:
->
+Let's import this and make a request in our program:
+
 ```py
 # cli-games/asciiart.py
 import requests
->
+
 r = requests.get('http://artii.herokuapp.com/make?text=Awesomesauce')
 print(r.text)
 ```
@@ -78,15 +71,14 @@ When you run this what do you get? (Hint: `$ python3 asciiart.py`)
 
 At first you probably get an error that warns you that the module `requests` is not actually loaded yet. So let's install this module. In order to install this, we'll need to first install a tool for installing python3 modules called **pip3**.
 
->[action]
->You can get pip3 very easily by running:
->
+You can get pip3 very easily by running:
+
 ```
 $ python3 get-pip.py
 ```
->
-> Now that you have pip3 installed, let's use it to install `requests`
->
+
+Now that you have pip3 installed, let's use it to install `requests`
+
 ```
 $ pip3 install requests
 ```
@@ -99,38 +91,33 @@ You should see our ASCII output of the text "Awesomesauce" we are passing in as 
 
 Let's use our `input` built-in function to get an input from the user at the command line. Then we'll use the **f-string** pattern to interpolate the text.
 
-> [action]
->
-> Update `asciiart.py` to the following:
->
+Update `asciiart.py` to the following:
+
 ```py
 import requests
->
+
 text = input('ASCII Art Text > ')
->
+
 r = requests.get(f'http://artii.herokuapp.com/make?text={text}')
 print(r.text)
 ```
 
 Ok now run that. It ought to work! Great.
 
->[action]
->In the interest of exploring errors more. Try removing something from the above text, like a `}` or a `)` and see what happens. Read the error you get carefully, and imagine how you would react when you encounter an error like this in the wild. Many errors are just caused by misspelling variables and forgetting commas and other syntax!
+In the interest of exploring errors more. Try removing something from the above text, like a `}` or a `)` and see what happens. Read the error you get carefully, and imagine how you would react when you encounter an error like this in the wild. Many errors are just caused by misspelling variables and forgetting commas and other syntax!
 
 # Adding a Font
 
 If you visit [http://artii.herokuapp.com](http://artii.herokuapp.com) you can see that we can also add a `font` url parameter.
 
-> [action]
->
-> Let's add that! Update `asciiart.py` to the following:
->
+Let's add that! Update `asciiart.py` to the following:
+
 ```py
 import requests
->
+
 text = input('ASCII Art Text > ')
 font = input('ASCII Art Font > ')
->
+
 r = requests.get(f'http://artii.herokuapp.com/make?text={text}&font={font}')
 print(r.text)
 ```
@@ -141,9 +128,8 @@ Some fonts to test with include "peaks", "shadow", and "thick".
 
 To get all the fonts, you can navigate to [http://artii.herokuapp.com/fonts_list](http://artii.herokuapp.com/fonts_list). This list of fonts is so long that it would be hard to list it all out for people to see in our command lines. Instead we could make it easy for our users and just grab three random fonts and output all three results.
 
->[action]
-> First we can get all the fonts:
->
+First we can get all the fonts:
+
 ```py
 data = requests.get('http://artii.herokuapp.com/fonts_list')
 print(data)
@@ -151,31 +137,28 @@ print(data)
 
 Next we can turn this list of fonts into an array data structure using the `.split()` and split them up by `\n` the invisible new line character.
 
-> [action]
-> Use split to break up the array:
->
+Use split to break up the array:
+
 ```py
 fontsArray = data.text.split('\n')
 ```
 
 Then we can get a random font with the `random.choice()` function.
 
-> [action]
->
-> Update `asciiart.py` to the following:
->
+Update `asciiart.py` to the following:
+
 ```py
 # cli-games/asciiart.py
 import requests
 import random
->
+
 data = requests.get('http://artii.herokuapp.com/fonts_list')
 fontsArray = data.text.split('\n')
 font = random.choice(fontsArray)
 print(font)
->
+
 text = input('ASCII Art Text > ')
->
+
 r = requests.get(f'http://artii.herokuapp.com/make?text={text}&font={font}')
 print(r.text)
 ```
@@ -207,18 +190,16 @@ Let's let people have three options with font:
 1. Set a single font
 1. Get 3 random fonts
 
-> [action]
->
-> First if there is no font specified we make the request with no font. Update your code to the following:
->
+First if there is no font specified we make the request with no font. Update your code to the following:
+
 ```py
 # cli-games/asciiart.py
 import requests
 import random
->
+
 text = input('ASCII Art Text > ')
 font = input('ASCII Art Font > ')
->
+
 if font == "":
   r = requests.get(f'http://artii.herokuapp.com/make?text={text}')
   print("Font: default")
@@ -249,21 +230,21 @@ if font == "random":
       print(r.text)
 ```
 
-> [action]
->
-> Consider your Boolean Logic carefully here. What order do these need to come in?
->
-> If we do it in the wrong order, we'll get the wrong logic and we might see errors.
->
-> Using the code snippets above, arrange them in the proper control flow order.
+Consider your Boolean Logic carefully here. What order do these need to come in?
+
+If we do it in the wrong order, we'll get the wrong logic and we might see errors.
+
+Using the code snippets above, arrange them in the proper control flow order.
 
 Once you've tried, check against the solution below:
 
-> [solution]
->
-> 1. `if` Check if font == "random"
-> 1. `elif` Check if font is anything (besides "random")
-> 1. `elif` Check if font is blank
+<details>
+<summary>Solution</summary>
+<br>
+1. `if` Check if font == "random"
+2. `elif` Check if font is anything (besides "random")
+3. `elif` Check if font is blank
+</details>
 
 # Refactoring Code Using Functions
 
@@ -273,10 +254,8 @@ Our code currently repeats itself in one place in particular: calling the API. S
 
 We'll use the `def` keyword to define a function. We'll want to define this function above anywhere where it is called.
 
-> [action]
->
-> Place this near the top of `asciiart.py`:
->
+Place this near the top of `asciiart.py`:
+
 ```py
 def getAsciiArt(text, font):
     r = requests.get(f'http://artii.herokuapp.com/make?text={text}&font={font}')
@@ -292,9 +271,7 @@ Now with this we can use this function to replace each time we called those same
       getAsciiArt(text, font)
 ```
 
-> [action]
->
-> Try to replace the code with the function in all other places. Now your code is DRY!
+Try to replace the code with the function in all other places. Now your code is DRY!
 
 # In Review: You Can ...
 
