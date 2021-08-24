@@ -78,4 +78,4 @@ On to the next chapter!
 
 # Next Steps
 
-Onward! Click [here](P01-Flash-Cards/content.md) to move onto the next section about making a flash card tester.
+Onward! Click [here](../P01-Flash-Cards/content.md) to move onto the next section about making a flash card tester.

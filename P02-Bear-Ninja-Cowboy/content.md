@@ -352,4 +352,4 @@ So in review here's what you did and what you can do now:
 
 # Next Steps
 
-Almost done! Click [here](P03-ASCII-Art/content.md) to move onto the next section about ASCII Art.
+Almost done! Click [here](../P03-ASCII-Art/content.md) to move onto the next section about ASCII Art.
