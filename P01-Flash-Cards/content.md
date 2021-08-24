@@ -379,4 +379,4 @@ So in review here's what you did and what you can do now:
 
 # Next Steps
 
-Click [here][(P02-Bear-Ninja-Cowboy/content.md) to move onto the next section about making a game similar to "Rock, Paper, Sciccors".
+Click [here](P02-Bear-Ninja-Cowboy/content.md) to move onto the next section about making a game similar to "Rock, Paper, Sciccors".
