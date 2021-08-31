@@ -93,6 +93,8 @@ This bit of JSON has one root key called `cards`, and the value associated with 
 > JSON is a very popular way to store and transmit data in the internet. It is a great format for data because it is easy for computers and humans to read it and write it.
 > JSON's basic structure is comma-delimited **Key-Value Pairs** surrounded by curly-bracies `{}`. Notice that keys are strings, and values can be any form of data, including arrays `[]`, and objects `{}`. By having arrays and objects as values gives JSON a nested tree structure. As you use JSON more you will become very familiar with its structure.
 
+Check your JSON with the JSON Validator/formatter: https://jsonformatter.curiousconcept.com
+
 # Read a File
 
 A python script `.py` can read files around it using file system commands native to python.
@@ -314,7 +316,7 @@ Now the comparison is only between all lowercase text no matter what. You can tr
 
 What else could you add to this program? Here are some ideas:
 
-1. As them if they want to play again at the end.
+1. Ask them if they want to play again at the end.
 1. Randomize the order of questions.
 1. Keep playing until the player gets all the questions right at least once.
 1. Keep playing until the player answers correctly 10 in a row.
