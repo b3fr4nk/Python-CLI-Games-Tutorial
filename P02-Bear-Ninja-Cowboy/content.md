@@ -346,6 +346,7 @@ Try these ideas:
 - Start the game with a get ready message! "Get ready to play Bear, Ninja, Cowboy!"
 - Follow the start message with an option to get instructions. "Would you like instructions? (yes/no) >" If yes show some instructions, something like: "Bear, Ninja, Cowboy is an exciting game of strategy and skill! Pit your wit against the computer! Choose a player: Bear, Ninja, or Cowboy. The computer chooses a player. Bear eats Ninja, Ninja defeats Cowboy and cowboy shoots bear."
 - Comment your code! Pay close attention to the formatting and code blocks. 
+- Break your code into functions! Use functions to handle specific operations. Using functions is an important and coding best practice! 
 - Keep score. Add 1 for each game you win subtract 1 for each game lost. Show the score after each game.
 - Expand the game. Look up Rock, Paper, Scissors, Lizard, Spock. This is the same game but has five possible plays. Rock < Paper < Scissors < Lizard < Spock < Rock. 
 
