@@ -338,6 +338,17 @@ Ever heard of [Rock, Paper, Scissors, Lizard, Spock](https://rpsls.net/#p4vrc)?
 
 Anything else?
 
+## Stretch Challenges
+
+Try these ideas: 
+
+- Currently inputting a not recognized name (like Anteater) wins two out of three times. You can solve this with a couple approaches. Test the input string and display a message if the name is not allowed for example: Ant is not Bear, Cowboy, or Ninja or Bear, Cowboy, and Ninja are the only allowed names. 
+- Start the game with a get ready message! "Get ready to play Bear, Ninja, Cowboy!"
+- Follow the start message with an option to get instructions. "Would you like instructions? (yes/no) >" If yes show some instructions, something like: "Bear, Ninja, Cowboy is an exciting game of strategy and skill! Pit your wit against the computer! Choose a player: Bear, Ninja, or Cowboy. The computer chooses a player. Bear eats Ninja, Ninja defeats Cowboy and cowboy shoots bear."
+- Comment your code! Pay close attention to the formatting and code blocks. 
+- Keep score. Add 1 for each game you win subtract 1 for each game lost. Show the score after each game.
+- Expand the game. Look up Rock, Paper, Scissors, Lizard, Spock. This is the same game but has five possible plays. Rock < Paper < Scissors < Lizard < Spock < Rock. 
+
 # In Review: You Can ...
 
 So in review here's what you did and what you can do now:
