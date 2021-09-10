@@ -282,4 +282,12 @@ So in review here's what you did and what you can do now:
 1. You can use control flow to use boolean logic to control the outcome of programs
 1. You can refactor code into functions
 
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "completed ASCII art" && git push
+```
+
 **Congrats on finishing the CLI Games Tutorial!** 

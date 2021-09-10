@@ -360,7 +360,15 @@ So in review here's what you did and what you can do now:
 * You can use the `random` method imported from the `randint` module native to Python
 * You can use **Control Flow** if/else/elif statements
 * You can use a `while` statement to make your game stay on
-* You use the keyword `break` to end the program
+* You use the keyword `break` to end the program\
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "completed 'bear, ninja, cowboy' game'" && git push
+```
 
 # Next Steps
 

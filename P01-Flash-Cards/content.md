@@ -43,6 +43,22 @@ Now your folder should look like this:
 
 >It is important to keep your coding projects organized on your computer. Having a centralized folder called `code` or `dev` where you put all projects is a great pattern to follow.
 
+# Setting up GitHub Repo
+
+It would be a good idea to setup our GitHub repository now before we go any futher.
+
+If this is your first time using GitHub CLI, you are going to need to log into GitHub. Run `gh auth login` in your terminal to login with your GitHub.com account. You can authenticate either through HTTPS or SSH. If you are not familiar with SSH, choose the
+HTTPS option and follow the provided steps to login.
+
+Additionally, if you are currently in the `flash-cards` directory, `cd` out of it to the main `cli-games` folder with the `cd -` command in order to add the entire project to the repo.
+
+Now it's time to setup our repo. Run the following commands in terminal and then follow the interactive prompts:
+
+```bash
+$ git init -b main
+$ gh repo create python-cli-games-tutorial
+```
+
 # Open the Directory in Atom
 
 Now let's get started coding. To code we will use the code editor Atom. If you don't already have this code editor, head over to the [Atom website](https://atom.io/) and download and install it.
@@ -70,6 +86,24 @@ We have basically five steps:
 1. Check the users input against the answer
 1. Display "Correct!" or "Incorrect!"
 
+# Setting up Virtual Environment
+
+Take a moment to setup your Virtual Environment.
+
+If you haven't setup a virtual environment before, make sure install it with the command `python3 -m pip install --user virtualenv`
+
+Otherwise, make sure you are in the main directory of the project and run the following to create your virtualenv:
+
+```bash
+$ python3 -m venv env
+$ source env/bin/activate
+```
+
+Remember to install your requirements if there is a `requirements.txt` file (not applicable to this tutorial)
+
+```bash
+$ pip3 install -r requirements.txt
+```
 
 # Setting Up Card Data
 
@@ -394,6 +428,14 @@ So in review here's what you did and what you can do now:
 1. You can access elements in a python dictionary
 1. You can iterate over an array
 1. You can take user input from the command line
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "completed flash card tester" && git push
+```
 
 # Next Steps
 

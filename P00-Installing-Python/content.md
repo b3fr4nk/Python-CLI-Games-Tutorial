@@ -48,7 +48,7 @@ If we want to install tools and applications using the terminal, the best progra
 
 If you don't already have Homebrew, install it by following the instructions under `Install Homebrew` on the [Homebrew website](https://brew.sh/)
 
-This will install homebrew into your computer so now we can use it to install Python.
+This will install homebrew onto your computer. Now we can use it to install Python and GitHub CLI.
 
 # Installing Python3
 
@@ -67,6 +67,14 @@ $ python3 --version
 ```
 
 If you see `Python 3.7.3` or something similar, then it is installed!
+
+# Installing GitHub CLI
+
+Having the GitHub CLI installed makes managing all things GitHub easy! We can install this by running
+
+```bash
+$ brew install gh
+```
 
 On to the next chapter!
 
