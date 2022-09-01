@@ -19,26 +19,28 @@ def calcWeight():
     cpuChoice = ""
     playerChoice = ""
     for i in range(len(roleList)):
-        weights[roleList[i]] = (1 + roles[roleList[i]]/total)/weights[roleList[i]]
+        weights[roleList[i]] = (1 + roles[roleList[i]]/total)/weights[roleList[i]]  #modified weighted average
 
-
+#prints the winner and adds/subtracts points to the cpu choice
 def roundOver(playerWin, cpuChoice):
     if playerWin:
         print(cpuChoice)
-        roles[cpuChoice] -= 1
+        roles[cpuChoice] -= 1   #removes a point for the weighting system
         print(f"{playerChoice} beats {cpuChoice}")
     else:
-        roles[cpuChoice] += 1
+        roles[cpuChoice] += 1   #adds a point for the weighting system
         print(f"{cpuChoice} beats {playerChoice}")
 
     calcWeight()
 
 playing = True
 
+#main loop
 while playing:
     print(f"weights: bear {weights['bear']}, ninja {weights['ninja']}, cowboy {weights['cowboy']}") 
-    cpuNum = float(randrange(start=0, stop=100)/100)
+    cpuNum = float(randrange(start=0, stop=100)/100)    #random number between 0.00 and 1.00
     print(cpuNum)
+    #calculates cpu choice based on random number and weights
     if cpuNum <= weights[roleList[bear]]:
         cpuChoice = roleList[bear]
     elif cpuNum > weights[roleList[bear]] and cpuNum <= weights[roleList[ninja]]+1/3:
